@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Natas 11: Cracking Weak Encryption"
-date:   2017-07-19 14:15:50 -0400
+title:  "Natas11: Cracking Weak Encryption"
+date:   2017-07-20 14:15:50 -0400
 categories: master
 ---
 
