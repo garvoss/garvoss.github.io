@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Buffer Overflows: Narnia6"
-date:   2017-07-23 14:15:50 -0400
+date:   2017-07-24 14:15:50 -0400
 categories: master
 ---
 
