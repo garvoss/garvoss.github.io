@@ -8,7 +8,7 @@
   @extend %vertical-rhythm;
 
   .highlighter-rouge & {
-    border-left: 2px solid $light-grey;
+    border-left: 2px solid #bbb;
     border-radius: 0px;
     background: $background-color;
   }
