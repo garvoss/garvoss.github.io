@@ -2,6 +2,8 @@
  * Syntax highlighting styles
  */
 .highlight {
+  border-left: 3px solid $light-grey;
+  border-radius: 0px;
   background: #fff;
   @extend %vertical-rhythm;
 

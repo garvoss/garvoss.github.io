@@ -37,7 +37,14 @@ ul, ol, dl, figure,
   margin-bottom: $spacing-unit / 2;
 }
 
-
+i {
+  //@include relative-font-size(0.9375);
+  font-size: 13px;
+  font-style: normal;
+  line-height: 1.4;
+  background-color: $background-color;
+  decoration: none;
+}
 
 /**
  * Images
@@ -139,8 +146,8 @@ code {
   //@include relative-font-size(0.9375);
   font-size: 13px;
   line-height: 1.4;
-  border-left: 3px solid $light-grey;
-  border-radius: 0px;
+//  border-left: 3px solid $light-grey;		#these two are defined in syntax-highlighting
+//  border-radius: 0px;				#so in-line code don't have border on left
   background-color: $background-color;
 }
 
