@@ -8,9 +8,9 @@
   @extend %vertical-rhythm;
 
   .highlighter-rouge & {
-    border-left: 2px solid #cfcfcf;
+    border-left: 1px solid #cfcfcf;
     border-radius: 0px;
-    background: $background-color;
+    //background: $background-color;
   }
 
   .c     { color: #998; font-style: italic } // Comment
