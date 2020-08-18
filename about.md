@@ -6,14 +6,9 @@ permalink: /about/
 
 Welcome, wanderer.
 
-The goals of this blog is multifold. 
+The goal of this blog is to help crystallize my knowledge of whatever topic recently caught my interest.
 
-The first, to showcase some of the problems I've encountered. 
-
-The second, to improve my skills in copywriting, important in penetration testing.
-
-And lastly, to help unravel the depths of information security to those come seeking to understand.
-
-With that said, I'll leave you to your journey.
+I've taken an interest in cryptology in recent times, so my posts will generally  
+revolve around crypto.
 
 Happy hacking.
