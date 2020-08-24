@@ -94,6 +94,7 @@ RF modulation: transmits an info signal via a carrier signal. Children's analogy
 	- Appolo - 72k of memory
 	- more software leads to more threat surface
 
+-----
 ## Satellite Orbits 101
 
 [Youtube Link](https://www.youtube.com/watch?v=YJsmLlmCG9I)
@@ -119,6 +120,7 @@ Medium Earth Orbit (MEO) - between 1240 miles and 22,236 mi. 2-24 hours, mostly 
 High Earth Orbit (HEO) - > 24 hours, satellite is slower than earth and appears like its moving west, but its not retrograde
 	- these sattelites are mostly to observe/research space, Hubble
 
+-----
 ## GPS Spoofing 101
 
 [Youtube Link](https://www.youtube.com/watch?v=mVITimYA3z0)
@@ -149,11 +151,11 @@ Each satellite is assigned a channel
 #### Spoofing Detection and Mitigation
 
 - potential solution: PKI and hidden markers (Markus G Kuhn) "An asymmetric security mechanism for nagivation signals"
-	- satellites have public keys, recv entire band of signal.
-	- transmitter discloses spreading code at a later time, signed by private key.
+	- satellites have public keys, receives entire band of signal
+	- transmitter discloses spreading code at a later time, signed by private key
 	- recv verifies signature, then despreads the signal via hidden markers
 - another easier, potential solution: use multiple receivers, attacker will have to spoof all the receivers 
-- another solution: signal characters to distinguish signal from sattelite in air vs attacker on ground. Fingerprinting
+- another solution: signal characters to distinguish signal from satellite in air vs attacker on ground. Fingerprinting
 
 Anti-anti spoofing: replay attacks. INS/GPS sensor fusion
 
@@ -176,11 +178,10 @@ AR ISS - Amateur Radio on ISS (education and community driven)
 
 FM - Freqency modulation, signal is carried by changes in frequency
 
-AM - Amplitude modulation, amplitude is modulated up and down; signal is carried by changes in amplitude
+AM - Amplitude modulation, signal is carried by changes in amplitude
 
 1200 bps - bauds not bits, signal interval or pulse
 - early modems were 1 bit per baud, but now can do more bits per baud. How? Quadrature Amplitude Modulation (QAM)
-	- 9600 bps = 1200 baud per second * 8 bits per baud
 
 What is packet radio? packetized data, instead of continuous flood of data
 - APRS: automatic Packet Reporting System, needs transmitter call signal if transmitting. 
@@ -205,9 +206,9 @@ Google manages aprs.fi, there's also ariss.net
 Hardware - [github.com/ericEscobar/TalkingToSatellites](https://github.com/ericEscobar/TalkingToSatellites) for an updated list
 - less than $100 is possible
 
-Want a directional antennas (more focused) va dish antenna (radiates out)
+Want a directional antennas (more focused) rather than dish antenna (radiates out)
 
-google "leggios yagi" can create an antenna with pvc pipes and measuring tape (~$10)
+google "leggios yagi", can create an antenna with pvc pipes and measuring tape (~$10)
 - [http://theleggios.net/wb2hol/projects/rdf/tape_bm.htm](http://theleggios.net/wb2hol/projects/rdf/tape_bm.htm)
 
 Tuning the antenna
@@ -226,6 +227,7 @@ Sample message: KJGOHH>APRS,ARISS,KJGOHH-7:=3660.84N/11879.96W-defcon 28 aerospa
 - 3660.84N/11879.96W - encoded GPS coords
 - "defcon 28..." - the message itself
 
+-------
 ## Exploiting Spacecraft (using simulation)
 
 [Youtube Link](https://www.youtube.com/watch?v=b8QWNiqTx1c)
@@ -238,7 +240,7 @@ C&DH - command and data handling
 
 barriers of entry to space has drastically reduced in the last 5-15 years. Now needs to be secured
 
-User segment (user terminals) - spoofing, DoS, malware; highest likelihood - people & internet access
+User segment (user terminals) - spoofing, DoS, malware; highest likelihood of attack - people & internet access
 
 Ground segment (antennas) - hacking, hijacking, malware
 
@@ -252,16 +254,16 @@ This presentation focuses on replay, command link intrusion (modulate own signal
 
 need to sniff signal from ground station to satellite (radiofreq.)
 
-this similution will simulate radiofrequency signals with UDP with tcpdump
+this simulation will simulate radiofrequency signals with UDP with tcpdump
 
 the simulation uses real ground software, real flight software, FEP, communication protocols (CCDS, TC/AOS), but no encryption
 
 sim. - "42" by NASA - supports orbital dynamics and environmental models
 - capture RF (udp) leaving ground station during command uplink pass and replay that RF (udp) traffic via tcpdump
 
-less than $7k to do RF capture and replay hardware in real life
+estimated less than $7k to do RF capture and replay hardware in real life
 
-need signal lock before sending commmand. No OP cmd is satellite equiv. of ping
+need signal lock before sending commmand. NO OP cmd is satellite equiv. of ping
 - command counter gets incremented for each successful command
 
 time to attack is when sat. moves away from ground station (signal lock lost). Ground station won't see anything wrong and the cmd counter increases
@@ -270,23 +272,21 @@ time to attack is when sat. moves away from ground station (signal lock lost). G
 
 no authentication and encryption means that adversary can craft own raw command packet and uplink it to sat.
 
-CFE/CFS uses CCDS prtocol for uplink/downlink - command space packet
+CFE/CFS uses CCDS protocol for uplink/downlink - command space packet
 - space packet wrapped in transfer frames, wrapped in Communications Link Transmission Unit (CLTU)
 - `(CLTU head)[Transfer Frame Header]<Space Packet>[Transfer Frame Trailer](CLTU Trailer)`
 
 Space Packet Protocol - CCDS 133.0-B-2
 
-[include pic]
-
 Protections
-- COP-1 - communications operation procedure-1: adds sequencing protection
+- COP-1 - Communications Pperation Procedure-1: adds sequencing protection
 		- may be helpful, but what we really need is encryption and authentication
 
-#### DoS Via GPS jamming
+#### DoS Via GPS Jamming
 
 block space traffic from GPS sensors via GPS jamming
 
-sattelite goes into sunpoint/safe mode - point solar panels to sun and wait to hear from ground station again
+satellite goes into sunpoint/safe mode - point solar panels to sun and wait to hear from ground station again
 	- lots of functionality is shut down, possibly including protection mechanisms
 
 sometimes uplink is encrypted, but not downlink. Downlink doesn't provide any commands to the satellite, but can still be used to gain telemetry
@@ -294,6 +294,7 @@ sometimes uplink is encrypted, but not downlink. Downlink doesn't provide any co
 Protecting the space system (ground to space)
 - Very sim. to normal protections, defense in depth. dynamic/static analysis, firewalls/ACLs, segmentation, authentication, IDS/IPs, etc.
 
+-------
 ## Trust and Truth in Space Situation Awareness
 
 [Youtube Link](https://www.youtube.com/watch?v=rkT8mxbWaIU)
@@ -308,11 +309,11 @@ SSA as a cyber target
 SSN - Space Surveillance Network
 - dominant source of SSA data is US military, who operates the SSN
 - comprised of ground stations and some satellites
-- most robut, but not cheap, FY15 budget is $1.6 billion
+- most robust, but not cheap, FY15 budget is $1.6 billion
 
 Russian Space Surveillance System
 - next best SSA network
-- ground stations primarily in Former USSR and territories friendly to USSR
+- ground stations primarily in former USSR and territories friendly to USSR
 - suspected connections to civil/scientific International Space Observation Network (ISON)
 
 PLA Strategic Support Force (China)
@@ -327,6 +328,8 @@ TLE - 2 line element set - primary form of sharing SSA
 - serves as input to a propegator -> can predict location of an object in near future
 	- accuracy within a kilometer over 72 hours
 
+![TLE](https://i.imgur.com/qdGdIjQ.png)
+
 #### SSA and Trust
 
 few creators of data, everyone else must trust that data -> cyberthreat
@@ -334,7 +337,7 @@ few creators of data, everyone else must trust that data -> cyberthreat
 why target SSA
 - highly centralized databases -> one change can affect many groups/organizations using that data
 	- those groups cant verify, must trust implicitly
-- soft target, hard effects. AKA easy to hack w/ real effects (ie collisions). Easier&cheaper to hack database versus making own space station
+- soft target, hard effects. AKA easy to hack w/ real effects (ie collisions). Easier & cheaper to hack database versus making own space station
 
 Attack goals
 - conceal impending collision
@@ -344,6 +347,7 @@ Attack goals
 Mitigations
 - vet data where possible. Cross-check public and private data
 
+------
 #### Cyber Security Lessons Learned from Human Spaceflight
 
 [Youtube Link](https://www.youtube.com/watch?v=pieaylw38cY)
@@ -352,13 +356,13 @@ ISS - science in microgravity, 24/7 365/yr
 
 Attacks - DoS Jamming, command and communication interception, MITM - alter data stream
 
-~5,000 active satellites in space
+~5000 active satellites in space
 
 #### Architecture
 
 flexibility, redundancy
 - had 4 computers loaded w/ Primary Avionics Software System (PASS)
-- 1 computer loaded with Backup Flight Software developed completely independently (different company & people, no communication)
+- 1 computer loaded with Backup Flight Software developed completely independently (different company & people, no communication between the two companies)
 
 distributed architecture separating critical functions
 - limit what info is allowed to pass between them, checks to enforce this
@@ -387,15 +391,15 @@ Areas of Concern
 - ground system vulns
 	- used to be each ground system was unique, now theres a push to make them more uniform
 		- good: vulnerability in one ground system didn't necessarily mean that other ground systems were also vulnerable
-		- bad: patch managament is a nightmare
+  	- bad: patch managament is a nightmare if each ground system is unique
 - edge computing: now there are more command capabilities in the satellite -> more possibility for exploitation (MITM or more severe)
 - complacency
-- LEO - system of sattelites in a mesh network -> more constant coverage, but more threat surface
+- LEO - system of satellites in a mesh network -> more constant coverage, but more threat surface
 
 Improving Security
 - DARPA High-Assurance Cyber Military Systems (HACMS) program
 	- hackers successfully hacked the critical systems in a helicopter
-	- DARPA System Security Integrated Through Hardware and Firmware (SITTH) program
+- DARPA System Security Integrated Through Hardware and Firmware (SITTH) program
 
 Delay and Disruption Tolerant Networking - developing a solar system internet
 
