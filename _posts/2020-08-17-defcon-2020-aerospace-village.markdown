@@ -406,7 +406,7 @@ Delay and Disruption Tolerant Networking - developing a solar system internet
 -----
 ## Workshop: CPX-simplesat
 
-[CPX-simplesat]https://aerospacevillage.org/defcon-28/cpx-simplesat/)
+[CPX-simplesat](https://aerospacevillage.org/defcon-28/cpx-simplesat/)
 
 This, as the name hints, was a pretty simple exercise in exploiting a sallelite via commands from a (compromised) ground station. As a non-privileged user that can only issue a few non-critical commands, the goal was to escalate privileges, find a way to enable "manual mode" and issue the "take off" command. The hardest part of this exercise was to guess the admin password.
 
