@@ -403,3 +403,111 @@ Improving Security
 
 Delay and Disruption Tolerant Networking - developing a solar system internet
 
+-----
+## Workshop: CPX-simplesat
+
+[CPX-simplesat]https://aerospacevillage.org/defcon-28/cpx-simplesat/)
+
+This, as the name hints, was a pretty simple exercise in exploiting a sallelite via commands from a (compromised) ground station. As a non-privileged user that can only issue a few non-critical commands, the goal was to escalate privileges, find a way to enable "manual mode" and issue the "take off" command. The hardest part of this exercise was to guess the admin password.
+
+------
+## Workshop: DDSAT-1
+
+[DDSAT-1](https://aerospacevillage.org/defcon-28/ddsat-1/)
+
+This workshop was a lot more challenging than the CPX-simplesat and I ran out of time sadly. Instead of issuing commands directly from a ground station to a satellite, the challenge in this exercise was to sniff the RF commands ocurring between the ground station and satellite (base64 encoded), figure out how the packet was structured, and then craft your own command to make the satellite shift its camera to look at the moon.
+
+Below indicates how far I got before running out of time. There was a checksum involved in this exercise.
+
+```
+ZVplZl WlZlV lVm aWWlVa VmZmZ lllVmWpZWVlqmWmaZqmmpqVWlU=
+ZVpmlV WlZlV lVm aWWlVa WWVWZ lllVmWpZWVlqmWmqZqpmVVZWpk=
+ZVplVl WlZlV lVm aWWlVa WWZmZ lllVmWpZWVlqmWmVpqpapqWVaU=
+ZVpmml WlZlV lVm aWWlVa WWZmZ lllVmWpZWVlqmWmZmZWVmmWllk=
+ZVpqmV WlZlV lVm aWWlVa VmZmZ lVmZmZZZlVlpWVmVlVqWWZpmZk=
+ZVppal WlZlV lVm aWWlVa VmZmZ lVmZmZZZlVlpWVmZlZllqppWlU=
+ZVppmV WlZlV lVm aWWlVa WWZmZ ZZlqWVlZZZlamWqlaZZWpaaWqk=
+ZVpmVl WlZlV lVm aWWlVa VmZmZ ZZlqWVlZZZlamWqaVlmaqppWVU=
+ZVpqVl WlZlV lVm aWWlVa WWZmZ pZlZmWlZaVlqmZqaWZpqWqqlaY=
+ZVpqZV WlZlV lVm aWWlVa WWZmZ pZlZmWlZaVlqmZqaZmZWlWqlZY=
+ZVqWZV WlZlV lVm aWWlVa WWZmZ apmWWVWZallamVmWpWWVpZalVY= *turn on red led*
+
+ZVpllV WaZlV lVm aWWlVa WWZmZ VllpWVWZVplmpalVVmWWmWp
+ZVppqV WaZlV lVm aWWlVa WWZmZ mpllWWWZmVlZqllZWVlVZqp
+
+ZVpaqV WaZlV lVm aWWlVa WWVWZ VllpWVWZVplmqqpmplZWWZV
+ZVppqV WaZlV lVm aWWlVa WWVWZ mpllWWWZmVlZqWqWpVqqmZa *turn off left light*
+
+ZVppVl WZZlV lVm aWWlVa VmVWZ VpmlmVWZamZZWqVmWZVWg==
+ZVpqWl WZZlV lVm aWWlVa WWZmZ WplqmWlZWVWZlVaapqpqQ==
+
+ZVpamV WWZVl lVm ZlWlVa VmVWW lZaZlpalaaqplllVqk=
+ZVpaql WWZVl lVm ZlWlVa VmVWW lZaZVpplmaaWVqlqqk=
+ZVplql WWZVl lVm ZlWlVa VmVWW lZaalpmaZpZZammZqY=
+ZVplVV WWZVl lVm ZlWlVa VmVWW lZaWlqVZpqZZWlaqWo=
+ZVplal WWZVl lVm ZlWlVa VmVWW lZaaVqVWmWVlVlqZmU=
+ZVplWl WWZVl lVm ZlWlVa VmVWW lZaWVpVWaqZWlVaVVY=
+ZVpmWl WWZVl lVm ZlWlVa WWVWW lZaWVpmalZppZmqlZo=
+ZVplmV WWZVl lVm ZlWlVa WWVWW lZaaVppmVqVZmmlZaY=
+ZVplml WWZVl lVm ZlWlVa WWVWW lZaZVqVWqWZalZqpWo=
+ZVplqV WWZVl lVm ZlWlVa WWVWW lZaWVpapWlWqlplmWY=
+ZVpppV WWZVl lVm ZlWlVa WWVWW lZaalpmqlammZaqWqY=
+ZVpqql WWZVl lVm ZlWlVa WWVWW lZaVlpmaapmpVVVaZk=
+ZVqVWV WWZVp lVm WmWlVa VmVWW lZaVlpqppmWmVVaWVY= *move camera to left*
+
+ZVpqWV WWZVp lVm WmWlVa VmVWW lZaZVqVllVqZaVlVpo=
+ZVpqpV WWZVp lVm WmWlVa VmVWW lZaaVpqWVqWVaZWaWo=
+ZllqpV WWZVp lVm WmWlVa VmVWW lZaalqVmZWamlmWWlk= *move camera to right*
+ZVqWal WWZVp lVm WmWlVa VmVWW lZaalqWmVqZZZpWalY= *move camera to right*
+
+ZVpmqV WWZlV lVm aWWlVa WWZmZ lllZmVlZaamZZVpWWY=
+
+ZVpmll WVZVl lVm ZlWlVa WWVWW mVaaqWplapapWlV
+ZVpmmV WVZVl lVm ZlWlVa VmVWW mlalVqammpZZplm
+ZVqVVV WVZVl lVm ZlWlVa WWVWW mlaZmWaVmpWWWZZ
+ZVqVWV WVZVl lVm ZlWlVa WWVWW pZaVWVllmaZalZW
+ZVplZV WVZVl lVm ZlWlVa WWVWW lZaapaZVZVmZqpZ
+ZVpaml WVZVl lVm ZlWlVa WWVWW mValmaWmZalVZql
+ZVpmpl WVZVl lVm ZlWlVa WWVWW pZaapmqWmmplVmp
+ZVppml WVZVl lVm ZlWlVa WWVWW lZaaallZmqlqqaW
+ZVpqWV WVZVl lVm ZlWlVa WWVWW mlaZVplWppmZVZl *flip left panel*
+ZVpqal WVZVl lVm ZlWlVa WWVWW mpaVmqaVpZlalZp *flip left panel*
+ZVqVZl WVZVl lVm ZlWlVa WWVWW pZaVmqWmaVWpaWl *flip left panel*
+
+ZVpapV WVZVl lVm ZlWlVa VmVWW mlaZppmllalWVql
+ZVpmpV WVZVl lVm ZlWlVa VmVWW mValWWllWqqalqZ
+
+ZVqaVl WVZVp lVm WmWlVa VmVWW mVaaamqZpqppamm *moon*
+ZVpqqV WVZVp lVm WmWlVa VmVWW mlaWqZmWVqlpqlV
+ZVpmZV WVZVp lVm WmWlVa VmVWW mZaZmqmaVWqamqZ
+ZVplpl WVZVp lVm WmWlVa VmVWW lZaWpmVWWpWaapq
+ZVpapl WVZVp lVm WmWlVa VmVWW mlaZaZZZZVaWmVZ
+ZVplWV WVZVp lVm WmWlVa VmVWW mVaammZVmqlpVpl
+ZVppZV WVZVp lVm WmWlVa VmVWW mlaWWWpqZqWVmWZ
+ZVppZl WVZVp lVm WmWlVa VmVWW llaWqmWVWqVlmaV
+ZVpmaV WVZVp lVm WmWlVa VmVWW mlalWpmWVpaWmmq
+ZVpmql WVZVp lVm WmWlVa VmVWW lZaaaWWlqmmqqWq
+ZVqVpV WVZVp lVm WmWlVa VmVWW mlalqZlmmZmqqWl *move camera to moon*
+
+ZVpqpl WVZVl lVm ZlWlVa WWVWW lZalpWlZlqpWVam
+ZVpqZl WVZVl lVm ZlWlVa WWVWW mpaZWqqpWqaZmmV
+ZVpqaV WVZVl lVm ZlWlVa VmVWW lZaVpaWlqmZVmlW
+ZVpqal WVZVl lVm ZlWlVa VmVWW mlaaaZmZmqZWVaq
+ZVpqlV WVZVl lVm ZlWlVa WWVWW mZaaZlmaWmWVVZm
+ZVpqll WVZVl lVm ZlWlVa WWVWW lZaWWpZqVVqpZWV
+
+ZVqVVl VqZVl lVm ZlWlVa WWVWW pWqmqqVVVaWpg==
+ZVpplV VqZVl lVm ZlWlVa WWVWW lpWZZpWZallVg==
+
+ZVqWml VqZVl lVm ZlWlVa VmVWW pZappVVZplaag== *flip right panel*
+
+ZVpmal VqZVp lVm WmWlVa VmVWW lWZaVaZapVmVg==
+ZVpppl VqZVp lVm WmWlVa VmVWW lmamlaqaVpWWQ==
+ZllplV VqZVp lVm WmWlVa VmVWW lValZaaWaaqlQ== *moon*
+
+ZVppaV VpZlV lVm aWWlVa WWZlZ qWqqqqqamk=
+ZVppll VpZlV lVm aWWlVa VmWlq WlZZmpqmWU=
+ZVpqml VpZlV lVm aWWlVa VmWlV pVZVZllqpY=
+```
+
+
