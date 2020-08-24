@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Defcon 28: Aerospace Village"
-date:   2020-08-16 00:00:00 -0400
+date:   2020-08-20 00:00:00 -0400
 categories: master
 ---
 
@@ -14,13 +14,13 @@ I was more interested in the space side of things rather than the aviation side,
 [Youtube Link](https://www.youtube.com/watch?v=al5eznn4Dh4)
 
 Geostationary/Geosynchronous Orbit: Orbit of satellite matches with revolution of the Earth, so that the satellite appears to 'hover' in the same spot in the sky. ~300 satellites in geosync. orbit
-- these satellites can be used to relay messages between ground sations. The ground stations can't communicate with each other, due to Earth's curvature, but can communicate to each other if they use a  geosync satellite as a middleman.
+- these satellites can be used to relay messages between ground sations. The ground stations can't communicate with each other due to Earth's curvature, but can communicate to each other if they use a geosync satellite as a middleman.
 - these satellites are also used for GPS - Europe has Galileo, China has BeiDou, and Russia has GLONASS
 	- with 4 satellites, trilateration is possible
 - also used for remote sensing - weather metrics, and monitoring of Earth's environmental state
 - need at least 3 sattelites to fully cover the Earth. Even then, there will be no visibility at the poles.
 
-Anatomy of a rocket: "payload" is the machinery needed to achieve the mission; "bus" referred to the supporting infrastructure/machinery ie rocket propulsion
+Anatomy of a rocket: "payload" is the machinery needed to achieve the mission; "bus" refers to the supporting infrastructure/machinery ie rocket propulsion
 
 Field of view is smaller than field of regard; determines how many revolutions around the Earth a satellite needs to cover the entire Earth
 
@@ -28,7 +28,7 @@ Field of view is smaller than field of regard; determines how many revolutions a
 
 bigger orbit -> more energy
 
-The Earth drops/curves 5 meters for every km you travel horizontally. We achieve orbit of we can achieve a velocity of 8km per second, or 17,600 mph, we achieve orbit.
+The Earth drops/curves 5 meters for every km you travel horizontally. We achieve orbit if we can achieve a velocity of 8km per second, or 17,600 mph
 
 Types of orbit: elliptical, parabola, hyperbola. Hyperbola will leave Earth's orbit
 
@@ -77,9 +77,9 @@ EM radiation - sun, photons (light)
 - solar pressure - photons don't have mass but have momentum, can change a spacecraft's orientation
 	- apparently can sail in space if had a really, really big sail
 
-3 sources of carged particles: solar wind and solar particle events (SPE), galactic cosmic rays, Van Allen radiation belts
+3 sources of charged particles: solar wind and solar particle events (SPE), galactic cosmic rays, Van Allen radiation belts
 - worries with both low energy (plasma) and high energy
-- high energy -> solar particle event, leads to northern & southern lights. Affects semiconductors' ability to conduct, can lead to bit flipping
+	- high energy -> solar particle event, leads to northern & southern lights. Affects semiconductors' ability to conduct, can lead to bit flipping
 - spacecraft shielding: most people would assume that lead is a good choice, but its not really. Best is liquid hydrogen and water. Hardware needs to be radiation-tolerant and software needs to do constant error checking.
 
 Vulnerabilities: RF and Datasystems
@@ -94,39 +94,30 @@ RF modulation: transmits an info signal via a carrier signal. Children's analogy
 	- Appolo - 72k of memory
 	- more software leads to more threat surface
 
-
 ## Satellite Orbits 101
 
 [Youtube Link](https://www.youtube.com/watch?v=YJsmLlmCG9I)
 
-Location of launch site is often near equator because of rotation of earth is fastest at equator. Gives vehicles an extra push/thrust to for orbit
+Location of launch site is often near equator because rotation of earth is fastest at equator. Gives vehicles an extra push/thrust to for orbit
 - mountains and valleys affect the gravitational pull on vehicle
 
 Geocentric orbits
-
-eccentricies: share of curve
-
-periodic orbit: closed, repetitive
-
-escape orbit: "open", uses planet's grav. pull to escape veloc.
-
-parabolic orbit: minimum energy escape
-
-hyperbolic orbit: slingshot, vehicle flies by a planet, uses its grav. pull to gain speed
-
-prograde - same direction as rotation of earth (moving to east)
-
-retrograde - opposite direction (west), rare because this is more costly
+- eccentricies: shape of curve
+- periodic orbit: closed, repetitive
+- escape orbit: "open", uses planet's grav. pull to achieve escape veloc.
+- parabolic orbit: minimum energy escape
+- hyperbolic orbit: slingshot, vehicle flies by a planet, uses its grav. pull to gain speed
+- prograde - same direction as rotation of earth (moving to east)
+- retrograde - opposite direction (west), rare because this is more costly
 
 Low Earth Orbit (LEO) - <1240 miles, <= 128 minutes to complete trip around earth, ISS and many other satellites in this orbit, incl. weather satellites
 
-Medium Earth Orbit (MEO) - 1240 miles < x > 22,236 mi. 2-24 hours, mostly populated by sats whos purposes are for communication and navigation (GPS, Galileo, GLONASS)
+Medium Earth Orbit (MEO) - between 1240 miles and 22,236 mi. 2-24 hours, mostly populated by sats whos purposes are for communication and navigation (GPS, Galileo, GLONASS)
 	- geosyn. orbit is 22,236 miles; a 24 hour rotation will make the satellite appear fixed -> geostationary
 	- these are often linked to earth antennas (Satellite TV and radio)
 
 High Earth Orbit (HEO) - > 24 hours, satellite is slower than earth and appears like its moving west, but its not retrograde
 	- these sattelites are mostly to observe/research space, Hubble
-
 
 ## GPS Spoofing 101
 
@@ -140,7 +131,7 @@ Transmits nagiv. messages containing location and time of transmission. Each sat
 
 Each nagivational message consists of 25 frames. Takes ~12.5 minutes to transmit entire packet. Time info is time from epoch.
 
-![image frame]()
+![GPS-nagivation-header](https://i.imgur.com/RvFtlPl.png)
 
 Receiver frontend converts analog signals to digital, to be processed by subsequent modules.
 
@@ -304,3 +295,109 @@ sometimes uplink is encrypted, but not downlink. Downlink doesn't provide any co
 
 Protecting the space system (ground to space)
 - Very sim. to normal protections, defense in depth. dynamic/static analysis, firewalls/ACLs, segmentation, authentication, IDS/IPs, etc.
+
+## Trust and Truth in Space Situation Awareness
+
+[Youtube Link](https://www.youtube.com/watch?v=rkT8mxbWaIU)
+
+SSA - space situational awareness - tracks debris in space
+
+debris cascade - debris collide with debris, causing more debris, causing more collisions, and so on
+
+SSA as a cyber target
+- SSA at core describes orbit of debris, comet, asteroid, sattelites, debris
+
+SSN - Space Surveillance Network
+- dominant source of SSA data is US military, who operates the SSN
+- comprised of ground stations and some satellites
+- most robut, but not cheap, FY15 budget is $1.6 billion
+
+Russian Space Surveillance System
+- next best SSA network
+- ground stations primarily in Former USSR and territories friendly to USSR
+- suspected connections to civil/scientific International Space Observation Network (ISON)
+
+PLA Strategic Support Force (China)
+- small compared to US and Russia, limited gobal reach
+- expands access via ships
+
+[space-track.org](https://www.space-track.org/)
+- publicly avail., offered by USA military
+
+TLE - 2 line element set - primary form of sharing SSA
+- started off as a punch card
+- serves as input to a propegator -> can predict location of an object in near future
+	- accuracy within a kilometer over 72 hours
+
+#### SSA and Trust
+
+few creators of data, everyone else must trust that data -> cyberthreat
+
+why target SSA
+- highly centralized databases -> one change can affect many groups/organizations using that data
+	- those groups cant verify, must trust implicitly
+- soft target, hard effects. AKA easy to hack w/ real effects (ie collisions). Easier&cheaper to hack database versus making own space station
+
+Attack goals
+- conceal impending collision
+- fake impending collision
+	- why fake a collision? adds cost to that organization even if no actual collision occurs - fuel, dollars, mechanical wear and tear, team fatigue)
+
+Mitigations
+- vet data where possible. Cross-check public and private data
+
+#### Cyber Security Lessons Learned from Human Spaceflight
+
+[Youtube Link](https://www.youtube.com/watch?v=pieaylw38cY)
+
+ISS - science in microgravity, 24/7 365/yr
+
+Attacks - DoS Jamming, command and communication interception, MITM - alter data stream
+
+~5,000 active satellites in space
+
+#### Architecture
+
+flexibility, redundancy
+- had 4 computers loaded w/ Primary Avionics Software System (PASS)
+- 1 computer loaded with Backup Flight Software developed completely independently (different company & people, no communication)
+
+distributed architecture separating critical functions
+- limit what info is allowed to pass between them, checks to enforce this
+- On-orbit Guidance Navigation and Control (GNC) software
+- On-orbit Systems Management (SM) software
+
+PGSC - astronauts personal laptops for support
+- 1 way communication to GNC, can recv data but not send data to GNC
+
+NISN - NASA integrated Services Network
+- entire network owned by NASA, no public internet
+	- later on, developed a proxy if astronauts needed/wanted internet access
+		- laptops talk to proxy that is firewalled in Johnson Space Center, and the proxy goes to internet
+		- station support computers are in no way networked to satellite control systems
+- MCC (mission command and control) - Houston texas
+- large set of antennas - White Sands
+- TDRS - Tracking and Data Relay Satellite (space). Relays to ISS
+	- ku-band (video), s-band (audio)
+
+More distributed architecture
+- 3 command and control MDMs (multiplexer/demultiplexer)
+- multiple separate payload and element MDMs to control systems
+
+Areas of Concern
+- encrypted uplinks and downlinks, but onboard satellite bus traffic not encrypted
+- ground system vulns
+	- used to be each ground system was unique, now theres a push to make them more uniform
+		- good: vulnerability in one ground system didn't necessarily mean that other ground systems were also vulnerable
+		- bad: patch managament is a nightmare
+- edge computing: now there are more command capabilities in the satellite -> more possibility for exploitation (MITM or more severe)
+- complacency
+- LEO - system of sattelites in a mesh network -> more constant coverage, but more threat surface
+
+Improving Security
+- DARPA High-Assurance Cyber Military Systems (HACMS) program
+	- hackers successfully hacked the critical systems in a helicopter
+	- DARPA System Security Integrated Through Hardware and Firmware (SITTH) program
+
+Delay and Disruption Tolerant Networking - developing a solar system internet
+
