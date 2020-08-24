@@ -142,11 +142,8 @@ Each satellite is assigned a channel
 #### GPS Spoofing Attacks
 
 - jamming - send noise at higher power than authentic message. Leads to DoS
-
 - spoofing - transmits false info and/or times of arrival, leading to incorrect calculations of location
-
 - Civilian GPS is unencrypted and unauthenticated. Handshake protocols can't be implemented because the receiver has no way to talk back to the satellites.
-
 - "seamless takeover" - adversary starts off by sending lower power signals then increase the power and overshadow the legit signal. Satellite will lock onto the attacker's signal. The adversary can now send modified packets that the satellite will now accept. 
 
 #### Spoofing Detection and Mitigation
@@ -160,6 +157,7 @@ Each satellite is assigned a channel
 
 Anti-anti spoofing: replay attacks. INS/GPS sensor fusion
 
+-----
 ## Talking to Satellites 101
 
 [Youtube Video](https://www.youtube.com/watch?v=JP1Y6QxM1FA)
