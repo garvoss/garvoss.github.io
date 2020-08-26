@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Defcon 28: Aerospace Village"
-date:   2020-08-20 00:00:00 -0400
+title:  "Coursera Cryptography I: Week 1 and 2"
+date:   2020-08-26 00:00:00 -0400
 categories: master
 ---
 
