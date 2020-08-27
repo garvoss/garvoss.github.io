@@ -229,8 +229,11 @@ didnt need it but can list shares via `smbclient -N -L \\\\127.0.0.1\ -p 8010`
 ## Exercise 10: 10 Browsing websites 2
 Browse to http://2a02:6b8:b010:9010:1::86/
 After going through exercise 8 and 9, this one was a breeze
-crease was the only machine that had ping6, so I started there
-on crease, the ipv6 host was reachable:
+
+Crease was the only machine that had ping6, so I started there
+
+On crease, the ipv6 host was reachable:
+
 ```
 $ ping6 2a02:6b8:b010:9010:1::86
 PING 2a02:6b8:b010:9010:1::86(2a02:6b8:b010:9010:1::86) 56 data bytes
